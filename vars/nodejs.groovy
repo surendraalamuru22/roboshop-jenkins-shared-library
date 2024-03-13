@@ -3,6 +3,7 @@ def call() {
         agent {
             node { label 'workstation'}
         }
+            sh 'env'
             common.codeQuality()
             if ( BRANCH_NAME == "main" || tag ==~ "*" ) {
                 stage('lint checks') {
