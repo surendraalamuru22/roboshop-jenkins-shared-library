@@ -7,13 +7,9 @@ def call() {
             if (! env.TAG_NAME) {
                 env.TAG_NAME = ""
             }
-            sh 'env'
+//            sh 'env'
             common.codeQuality()
-            if ( BRANCH_NAME == "main" || TAG_NAME ==~ ".*" ) {
-                stage('lint checks') {
-                    echo 'lint checks'
-                }
-            }
+            common.stylechecks()
 //            stage ('unit tests') {
 //                when {
 //                    anyOf {
