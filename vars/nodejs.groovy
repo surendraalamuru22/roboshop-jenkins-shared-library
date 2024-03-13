@@ -3,7 +3,7 @@ def call() {
         agent {
             node { label 'workstation'}
         }
-            common.codequality()
+            common.codeQuality()
 
 //            stage ('lint checks') {
 //                when {
