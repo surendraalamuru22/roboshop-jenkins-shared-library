@@ -4,18 +4,11 @@ def call() {
             node { label 'workstation'}
         }
             common.codeQuality()
-
-//            stage ('lint checks') {
-//                when {
-//                    anyOf {
-//                        branch 'main'
-//                        tag "*"
-//                    }
-//                }
-//                steps {
-//                    echo 'lint checks'
-//                }
-//            }
+            if ( BRANCH_NAME == "main" || tag ==~ "*" ) {
+                stage('lint checks') {
+                    echo 'lint checks'
+                }
+            }
 //            stage ('unit tests') {
 //                when {
 //                    anyOf {
