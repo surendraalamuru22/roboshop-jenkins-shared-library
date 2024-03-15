@@ -5,6 +5,7 @@ def call() {
         }
 
 //            sh 'env'
+            common.codeCheckout()
             common.codeQuality()
             common.codechecks()
             common.artifacts()
