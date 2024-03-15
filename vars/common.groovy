@@ -1,6 +1,6 @@
 def codeCheckout() {
     stage('Code Checkout') {
-        sh 'sudo find . | sed 1d |xargs rm -rf'
+        sh 'find . | sed 1d | xargs rm -rf'
         git branch: 'main', url: "https://github.com/surendraalamuru22/${COMPONENT}.git"
     }
 }
