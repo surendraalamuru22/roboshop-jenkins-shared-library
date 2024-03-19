@@ -1,7 +1,7 @@
 def call() {
     node {
         agent {
-            node { label 'worker:node1'}
+            node { label 'workstation-pipeline'}
         }
 
 //            sh 'env'
