@@ -1,7 +1,7 @@
 def call() {
     node {
         agent {
-            node { label 'workstation-surendra'}
+            node { label 'worker:node1'}
         }
 
 //            sh 'env'
