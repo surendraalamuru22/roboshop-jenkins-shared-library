@@ -1,4 +1,5 @@
 def call() {
+    env.APPTYPE = "nginx"
     node {
         agent {
             node { label 'workstation2'}
