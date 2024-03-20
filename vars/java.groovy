@@ -1,55 +1,19 @@
 def call() {
+    env.SONAR_EXTRA_OPTS = "-Dsonar.java.binaries=./target"
     node {
         agent {
-            node { label 'workstation'}
+            node { label 'workstation2'}
         }
-//        stages {
-//            stage ('compile code') {
-//                steps {
-//                    echo 'compile code'
-//                }
-//            }
-            common.codeQuality()
-//            stage ('lint checks') {
-//                when {
-//                    anyOf {
-//                        branch 'main'
-//                        tag "*"
-//                    }
-//                }
-//                steps {
-//                    echo 'lint checks'
-//                }
-//            }
-//            stage ('unit tests') {
-//                when {
-//                    anyOf {
-//                        branch 'main'
-//                        tag "*"
-//                    }
-//                }
-//                steps {
-//                    echo 'unit tests'
-//                }
-//            }
-//            stage ('Build package') {
-//                when { tag "*" }
-//                steps {
-//                    echo 'Build package'
-//                }
-//            }
-//            stage ('prepare artifact') {
-//                when { tag "*" }
-//                steps {
-//                    echo 'prepare artifact'
-//                }
-//            }
-//            stage ('publish artifact') {
-//                when { tag "*" }
-//                steps {
-//                    echo 'publish artifact'
-//                }
-//            }
-//        }
+
+//            sh 'env'
+        stage('compile code') {
+            sh 'mvn compile'
+        }
+        common.codeCheckout()
+        common.codeQuality()
+        common.codechecks()
+        common.artifacts()
+
+
     }
 }
