@@ -1,48 +1,15 @@
 def call() {
-    pipeline {
+    node {
         agent {
-            node { label 'workstation'}
+            node { label 'workstation2'}
         }
-        stages {
-            stage ('code quality') {
-                steps {
-                    echo 'code quality'
-                }
-            }
-            stage ('lint checks') {
-                when {
-                    anyOf {
-                        branch 'main'
-                        tag "*"
-                    }
-                }
-                steps {
-                    echo 'lint checks'
-                }
-            }
-            stage ('unit tests') {
-                when {
-                    anyOf {
-                        branch 'main'
-                        tag "*"
-                    }
-                }
-                steps {
-                    echo 'unit tests'
-                }
-            }
-            stage ('prepare artifact') {
-                when { tag "*" }
-                steps {
-                    echo 'prepare artifact'
-                }
-            }
-            stage ('publish artifact') {
-                when { tag "*" }
-                steps {
-                    echo 'publish artifact'
-                }
-            }
-        }
+
+//            sh 'env'
+        common.codeCheckout()
+        common.codeQuality()
+        common.codechecks()
+        common.artifacts()
+
+
     }
 }
