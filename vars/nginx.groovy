@@ -1,5 +1,4 @@
 def call() {
-    env.SONAR_EXTRA_OPTS = "-Dsonar.java.binaries=./target"
     node {
         agent {
             node { label 'workstation2'}
@@ -7,9 +6,6 @@ def call() {
 
 //            sh 'env'
         common.codeCheckout()
-        stage('compile code') {
-            sh 'mvn compile'
-        }
         common.codeQuality()
         common.codechecks()
         common.artifacts()
