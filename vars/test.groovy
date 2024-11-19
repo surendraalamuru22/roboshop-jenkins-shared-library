@@ -16,8 +16,8 @@
 def call() {
     node {
         agent any
-        stage('test') {
+         stage('test') {
             sh 'echo hello world'
-        }
+         }
     }
 }
