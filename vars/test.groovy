@@ -6,7 +6,7 @@ def call() {
        stages {
            stage('test stage') {
                steps {
-                   sh 'echo name of the pipeline is $PIPE_LINE'
+                   sh 'echo name of the pipeline is $PIPELINE_NAME'
                }
            }
        }
