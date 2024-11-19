@@ -15,6 +15,8 @@
 
 def call() {
     node {
+
+         common.codeCheck()
          stage('test') {
             sh 'echo hello world'
          }
