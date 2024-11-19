@@ -1,7 +1,8 @@
 def call() {
+    env.PIPELINE_NAME = "surendra"
    pipeline {
        agent any
-       env.PIPELINE_NAME = "surendra"
+
        stages {
            stage('test stage') {
                steps {
