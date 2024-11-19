@@ -16,7 +16,9 @@
 def call() {
     node {
 
-         common.codeCheckout()
+        agent {
+            node { label 'workstation' }
+        }
          stage('test') {
             sh 'echo hello world'
          }
